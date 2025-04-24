@@ -10,9 +10,29 @@ public class Reto {
      * @param args
      */
     public static void main(String[] args) {
-        // leo el arhivo CSV
-        String archivo = "data.csv";
-
+            leerArchivo("data.csv");
+    }
+    /**
+     * Imprime el reporte final con el balance, id de la transacción con el mayor monto, monto mayor, conteo de creditos y debitos
+     * @param balance valor de la suma de los debitos y creditos
+     * @param idMaxTransaccion id con el monto mayor
+     * @param montoMaxTransaccion monto mayor
+     * @param conteoCredito cantidad de creditos
+     * @param conteoDebito cantidad de debitos
+     */
+    public static void imprimir(double balance, String idMaxTransaccion, double montoMaxTransaccion, int conteoCredito, int conteoDebito) {
+        // Imprimir el reporte final
+        System.out.println("Reporte de Transacciones");
+        System.out.println("---------------------------------------------");
+        System.out.printf("Balance Final: %.2f%n", balance);
+        System.out.printf("Transacción de Mayor Monto: ID %s - %.2f%n", idMaxTransaccion, montoMaxTransaccion);
+        System.out.printf("Conteo de Transacciones: Crédito: %d Débito: %d%n", conteoCredito, conteoDebito);
+    }
+    /**
+     * Lee un archivo que se pasa como argumento y procesa las transacciones
+     * @param archivo nombre del archivo a leer
+     */
+    public static void leerArchivo(String archivo) {
         // Variables para almacenar los resultados
         double balance = 0.0; // balance total para la suma del debito y credito
         String idMaxTransaccion = ""; // ID de la transacción con el mayor monto
@@ -46,13 +66,7 @@ public class Reto {
                     idMaxTransaccion = id; //se asigna el id de la transacción con el mayor monto
                 }
             }
-
-            // Imprimir el reporte final
-            System.out.println("Reporte de Transacciones");
-            System.out.println("---------------------------------------------");
-            System.out.printf("Balance Final: %.2f%n", balance);
-            System.out.printf("Transacción de Mayor Monto: ID %s - %.2f%n", idMaxTransaccion, montoMaxTransaccion);
-            System.out.printf("Conteo de Transacciones: Crédito: %d Débito: %d%n", conteoCredito, conteoDebito);
+            imprimir(balance, idMaxTransaccion, montoMaxTransaccion, conteoCredito, conteoDebito);
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
