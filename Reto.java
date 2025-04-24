@@ -36,7 +36,7 @@ public class Reto {
         // Variables para almacenar los resultados
         double balance = 0.0; // balance total para la suma del debito y credito
         String idMaxTransaccion = ""; // ID de la transacción con el mayor monto
-        double montoMaxTransaccion = Double.MIN_VALUE; // valor menor posible para el monto con que comparar
+        double montoMaxTransaccion = 0.0; // valor menor posible para el monto con que comparar
         int conteoCredito = 0; // Contador de transacciones de crédito
         int conteoDebito = 0;// Contador de transacciones de débito
         
@@ -46,10 +46,10 @@ public class Reto {
 
             // Procesamos cada línea del archivo
             while ((linea = br.readLine()) != null) {
-                StringTokenizer st = new StringTokenizer(linea, ",");// separa los valores por comas
-                String id = st.nextToken();//id de la transacción
-                String tipo = st.nextToken();//debito o credito
-                double monto = Double.parseDouble(st.nextToken()); // Monto de la transacción
+                String[] partes = linea.split(",");// separa los valores por comas
+                String id = partes[0];//id de la transacción
+                String tipo = partes[1];//debito o credito
+                double monto = Double.parseDouble(partes[2]); // Monto de la transacción
 
                 // Actualizar balance y conteos según el tipo de transacción
                 if ("Crédito".equals(tipo)) {

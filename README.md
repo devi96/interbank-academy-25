@@ -38,7 +38,7 @@ El programa procesará el archivo `data.csv` y mostrará un reporte con:
 ---
 
 ## Enfoque y Solución
-La lógica del programa se basa en la lectura secuencial del archivo CSV, utilizando un `BufferedReader` junto con un `StringTokenizer` para dividir las líneas en campos. El programa realiza las siguientes tareas:
+La lógica del programa se basa en la lectura secuencial del archivo CSV, utilizando un `BufferedReader` junto con un `split` para dividir las líneas en campos. El programa realiza las siguientes tareas:
 1. **Calcular el balance final**: Suma las transacciones de tipo **Crédito** y resta las de tipo **Débito**.
 2. **Identificar la transacción de mayor monto**: Compara cada transacción con la anterior para encontrar el mayor monto.
 3. **Contar transacciones de Crédito y Débito**: Lleva un registro de cuántas transacciones de cada tipo se procesan.
